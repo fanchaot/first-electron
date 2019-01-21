@@ -18,6 +18,15 @@ module.exports = {
   configureWebpack: {
     devServer: {
       before (app) {
+        app.get('/api/goods', function (req, res) {
+          res.json({
+            code: 0,
+            list: [
+              {id: 1, text: '喂喂喂翁翁翁翁'},
+              {id: 2, text: '喂喂喂翁翁翁翁'}
+            ]
+          })
+        })
         app.get('/api/login' , function (req, res) {
           const {username, password} = req.query
           if (username === 'jerry' && password === '123') {
@@ -31,7 +40,11 @@ module.exports = {
               message: '用户名或者密码错误'
             })
           }
-          
+        })
+        app.get('/api/logout', function (req, res) {
+          res.josn({
+            code: -1
+          })
         })
       } 
     }

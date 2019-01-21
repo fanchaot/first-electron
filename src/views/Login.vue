@@ -71,11 +71,15 @@
                         password: this.model.password
                     }
                 })
+                console.log(res)
                 const {code, token, message} = res.data
                 if (code == 0) {
                     // 登陆成功
                     localStorage.setItem('token', token) // 缓存至本地
                     this.$store.commit('setToken', token) // 存入store
+                    // 回跳
+                    const {redirect} = this.$route.query || '/'
+                    this.$router.push(redirect)
                 } else {
                     // 登录失败
                     const toast = this.$createToast({
