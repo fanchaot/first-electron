@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Login from './views/Login.vue'
+import Cart from './views/Cart.vue'
 import store from './store';
 
 Vue.use(Router)
@@ -25,6 +26,11 @@ const router = new Router({
       name: 'about',
       meta: {auth: true},
       component: About
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: Cart
     }
   ]
 })
