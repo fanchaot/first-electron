@@ -19,17 +19,28 @@ axios.interceptors.response.use(
         if (response.status == 200) {
            const data = response.data
            if (data.code == -1) {
-            // 清除缓存
-            store.commit('setToken', ''),
-            localStorage.removeItem('token')
-
-            // 跳转登录页
-            router.push({path: '/login', query: router.currentRoute.path})
+            clearHandler()
            }
         }
         return response
     },
     err => {
-        console.log(err)
+        if (err.response.status === 401) { // 未授权
+            clearHandler()
+        }
     }
 )
+
+function clearHandler () {
+    // 清除缓存
+    store.commit('setToken', ''),
+    localStorage.removeItem('token')
+
+    // 跳转登录页
+    router.push({
+        path: '/login',
+        query: {
+            redirect: router.currentRoute.path
+        }
+    })
+}

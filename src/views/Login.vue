@@ -79,6 +79,7 @@
                     this.$store.commit('setToken', token) // 存入store
                     // 回跳
                     const {redirect} = this.$route.query || '/'
+                    console.log(this.$route.query)
                     this.$router.push(redirect)
                 } else {
                     // 登录失败

@@ -4,8 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>|
       <!--  -->
-      <router-link to="/login" v-if="!isLogin">login</router-link>
-      <a @click="logout" v-if="isLogin">logout</a>
+      <router-link to="/login" v-if="!isLogin">登录</router-link>
+      <a @click="logout" v-if="isLogin">注销</a>
     </div>
     <router-view/>
   </div>
