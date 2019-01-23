@@ -65,8 +65,11 @@ router.afterEach((to, form) => {
     // 后退
     History.pop()
     router.isBack = false
+    router.transitionName = 'route-back'
   } else {
+    console.log(History)
     History.push(to.path)
+    router.transitionName = 'route-forward'
   }
 })
 export default router
