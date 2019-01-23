@@ -52,7 +52,6 @@ export default {
     const {
       data: {data: goods, slider, keys}
     } = await this.$http.get('/api/goods')
-    console.log(goods, slider)
     this.keys = keys
     this.slider = slider
     this.goods = goods
