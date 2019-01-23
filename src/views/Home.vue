@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <!-- 页头 -->
+    <k-header title="凡超的小店"></k-header>
     <!-- 轮播图 -->
     <cube-slide 
     :data="slider"
